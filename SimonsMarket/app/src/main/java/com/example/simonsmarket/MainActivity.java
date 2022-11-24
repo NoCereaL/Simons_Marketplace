@@ -17,8 +17,10 @@ import com.example.simonsmarket.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    EditText editUsername, editPassword;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
@@ -43,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        editUsername = (EditText) findViewById(R.id.login_textfield);
+        editPassword = (EditText) findViewById(R.id.login_passfield);
     }
 
     @Override
@@ -69,8 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void OnLogin(View view){
         System.out.println("Pressed");
-        String username = "Simon";
-        String password = "Simon";
+        String username = editUsername.getText().toString();
+        String password = editPassword.getText().toString();
         String type = "login";
         FirstFragment.BackendWorker backendWorker = new FirstFragment.BackendWorker(this);
         backendWorker.execute(type, username, password);

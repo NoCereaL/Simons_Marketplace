@@ -26,6 +26,7 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
@@ -128,17 +129,14 @@ public class FirstFragment extends Fragment {
         @Override
         protected String doInBackground(String... params) {
             String type = params[0];
-
-
             String login_url = "https://moyanask.com/EPTeam1/login.php";
             if(type.equals("login")) {
-                System.out.println("Running");
                 try {
                     String user = params[1];
                     String password = params[2];
                     System.out.println("Login Process began");
                     URL url = new URL(login_url);
-                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    HttpURLConnection con = (HttpURLConnection)url.openConnection();
                     con.setRequestMethod("POST");
                     con.setDoOutput(true);
                     con.setDoInput(true);
@@ -153,8 +151,6 @@ public class FirstFragment extends Fragment {
                     writer.flush();
                     writer.close();
                     outputStream.close();
-
-                    System.out.println("Data Sent");
 
                     InputStream inputStream = con.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
@@ -193,9 +189,14 @@ public class FirstFragment extends Fragment {
         @Override
         protected void onPostExecute(String s) {
             System.out.println("Result: \n");
-            alertDialog.setMessage(result);
+            alertDialog.setMessage(s);
             alertDialog.show();
-            System.out.println(result);
+            System.out.println(s);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
         }
     }
 

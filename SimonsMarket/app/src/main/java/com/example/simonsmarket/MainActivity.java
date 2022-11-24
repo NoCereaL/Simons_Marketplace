@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setTitle("Login");
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -65,6 +65,24 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void OnLogin(View view){
+        System.out.println("Pressed");
+        String username = "Simon";
+        String password = "Simon";
+        String type = "login";
+        FirstFragment.BackendWorker backendWorker = new FirstFragment.BackendWorker(this);
+        backendWorker.execute(type, username, password);
+    }
+
+    public void OnSignup(View view){
+        System.out.println("Signup");
+        String username = "Simon";
+        String password = "Simon";
+        String type = "login";
+        FirstFragment.BackendWorker backendWorker = new FirstFragment.BackendWorker(this);
+        backendWorker.execute(type, username, password);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.example.simonsmarket;
 
 import android.os.Bundle;
 
+import com.example.simonsmarket.databinding.ActivityMainBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,8 +13,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import com.example.simonsmarket.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         String username = editUsername.getText().toString();
         String password = editPassword.getText().toString();
         String type = "login";
-        FirstFragment.BackendWorker backendWorker = new FirstFragment.BackendWorker(this);
+        LoginFragment.BackendWorker backendWorker = new LoginFragment.BackendWorker(this);
         backendWorker.execute(type, username, password);
     }
 
@@ -86,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         String username = "Simon";
         String password = "Simon";
         String type = "login";
-        FirstFragment.BackendWorker backendWorker = new FirstFragment.BackendWorker(this);
+        LoginFragment.BackendWorker backendWorker = new LoginFragment.BackendWorker(this);
         backendWorker.execute(type, username, password);
     }
 

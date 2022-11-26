@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         editUsername = (EditText) findViewById(R.id.login_textfield);
         editPassword = (EditText) findViewById(R.id.login_passfield);
+
     }
 
     @Override
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         String type = "login";
         LoginFragment.BackendWorker backendWorker = new LoginFragment.BackendWorker(this);
         backendWorker.execute(type, username, password);
+        //Navigation.findNavController(view).navigate(R.id.action_LoginFragment_to_SecondFragment);
     }
 
     public void OnSignup(View view){

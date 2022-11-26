@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavHost;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.simonsmarket.databinding.FragmentLoginBinding;
@@ -29,7 +31,8 @@ public class LoginFragment extends Fragment {
 
     private FragmentLoginBinding binding;
     public static String result = "";
-
+    public LoginFragment lf = this;
+    public static View v;
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -43,17 +46,18 @@ public class LoginFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        v = view;       //On View Created set static v = to this view so we can call this view in backendworker
 
         String user = String.valueOf(binding.loginTextfield.getText());
         String password = String.valueOf(binding.loginPassfield.getText());
         BackendWorker backend = new BackendWorker(getContext());
-
     }
 
 
     public static class BackendWorker extends AsyncTask<String, Void, String>{
         Context context;
-        AlertDialog alertDialog;
+        public AlertDialog alertDialog;
+        public static String status;
         public BackendWorker(Context ctx){context = ctx;}
         @Override
         protected String doInBackground(String... params) {
@@ -83,7 +87,7 @@ public class LoginFragment extends Fragment {
 
                     InputStream inputStream = con.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
-                     result = "";
+                    result = "";
                     String line = "";
 
 
@@ -94,12 +98,14 @@ public class LoginFragment extends Fragment {
 
                     if (result.equals("Approved")) {
                         System.out.println(result);
+
                     }
                     //result = bufferedReader.readLine();
 
                     bufferedReader.close();
                     inputStream.close();
                     con.disconnect();
+                    status = result;
                     return result;
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -116,17 +122,29 @@ public class LoginFragment extends Fragment {
         }
 
         @Override
-        protected void onPostExecute(String s) {
+        protected void onPostExecute(String res) {
             System.out.println("Result: \n");
-            alertDialog.setMessage(s);
-            alertDialog.show();
-            System.out.println(s);
+            alertDialog.setMessage(res);        //Return server php file/http response
+            alertDialog.show();             //Show alert dialog
+            System.out.println(res);
+            if(res.equals("Approved")) {                //Check Approval
+                LoginFragment.LoginSuccessful(v);       //Call LoginSuccessful method with static v as this loginFragment view
+            }
         }
 
         @Override
         protected void onProgressUpdate(Void... values) {
             super.onProgressUpdate(values);
         }
+    }
+
+    public static void LoginSuccessful(@NonNull View view){     //Make class static so we can call in BackendWorker static class
+        Navigation.findNavController(view).navigate(R.id.action_LoginFragment_to_SecondFragment);           //Navigation if login successful
+    }
+
+
+    public static View newView(@NonNull View view){
+        return view;
     }
 
     @Override

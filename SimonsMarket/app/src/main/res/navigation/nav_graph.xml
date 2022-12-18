@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_LoginFragment_to_SecondFragment"
             app:destination="@id/SecondFragment" />
+        <action
+            android:id="@+id/action_LoginFragment_to_mainActivity2"
+            app:destination="@id/mainActivity2" />
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
@@ -25,4 +28,8 @@
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/LoginFragment" />
     </fragment>
+    <activity
+        android:id="@+id/mainActivity2"
+        android:name="com.example.simonsmarket.MainActivity"
+        android:label="MainActivity" />
 </navigation>

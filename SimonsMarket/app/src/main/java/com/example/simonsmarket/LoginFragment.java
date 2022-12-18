@@ -139,7 +139,8 @@ public class LoginFragment extends Fragment {
     }
 
     public static void LoginSuccessful(@NonNull View view){     //Make class static so we can call in BackendWorker static class
-        Navigation.findNavController(view).navigate(R.id.action_LoginFragment_to_SecondFragment);           //Navigation if login successful
+        Navigation.findNavController(view).navigate(R.id.action_LoginFragment_to_mainActivity2);           //Navigation if login successful
+
     }
 
 

@@ -9,4 +9,83 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <string-array name="profile_name">
+        <item>Simon</item>
+        <item>George</item>
+        <item>Carlos</item>
+        <item>Charles</item>
+        <item>Lando</item>
+        <item>Lewis</item>
+        <item>Daniel</item>
+    </string-array>
+
+    <string-array name="profile_des">
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+        <item>Formula 1 Driver</item>
+    </string-array>
+
+    <string-array name="item_names">
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+        <item>Basketball</item>
+    </string-array>
+
+    <string-array name="item_descripts">
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+    </string-array>
 </resources>
